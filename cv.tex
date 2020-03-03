@@ -7,10 +7,15 @@
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{verbatim}
 \usepackage{enumitem}
+\usepackage{bibentry}
+\makeatletter\let\saved@bibitem\@bibitem\makeatother
 \usepackage[pdftex]{hyperref}
+\makeatletter\let\@bibitem\saved@bibitem\makeatother
 \usepackage{fancyhdr}
 \usepackage{fontawesome}
+\usepackage{bibentry}
 
+\PassOptionsToPackage{fontawesome}{hyperref}
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
 \fancyfoot{}
@@ -39,7 +44,11 @@
 % Custom commands
 \newcommand{\Item}[3]{
   \item\small{
-    \textbf{\href{#1}{#2}}{: #3 \vspace{-2pt}}
+    \ifx&#1&
+      \textbf{#2}{: #3 \vspace{-2pt}}
+    \else
+      \textbf{\href{#1}{#2}}{: #3 \vspace{-2pt}}
+    \fi
   }
 }
 
@@ -52,6 +61,10 @@
 }
 
 \newcommand{\SubItem}[3]{\Item{#1}{#2}{#3}\vspace{-4pt}}
+
+\newcommand{\Section}[2]{
+    \section{\texorpdfstring{#1}{o} #2}
+}
 
 \renewcommand{\labelitemii}{$\circ$}
 
@@ -68,43 +81,51 @@
 
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \textbf{\href{https://www.jonathanguiang.com}{\Large Jonathan Guiang}} & Email: \href{mailto:jguiang@ucsd.edu}{jguiang@ucsd.edu}\\
+  \textbf{\href{https://www.jguiang.com}{\Large Jonathan Guiang}} & Email: \href{mailto:jguiang@ucsd.edu}{jguiang@ucsd.edu}\\
   \textit{\small{Physicist, Programmer, Data Analyst}} & Phone : +1-858-880-5819 \\
 \end{tabular*}
 \begin{center}
-    \small{\href{https://www.jonathanguiang.com}{\faGlobe\ jonathanguiang.com} $|$ \href{https://www.github.com/jkguiang}{\faGithub\ github.com/jkguiang} $|$ \href{https://www.linkedin.com/in/jonathanguiang}{\faLinkedinSquare\ /in/jonathanguiang/}}
+    \small{\href{https://www.jguiang.com}{\faGlobe\ jguiang.com} $|$ \href{https://www.github.com/jkguiang}{\faGithub\ github.com/jkguiang} $|$ \href{https://www.linkedin.com/in/jonathanguiang}{\faLinkedinSquare\ /in/jonathanguiang/}}
 \end{center}
 %
 
 %-----------EDUCATION-----------------
-\section{\faGraduationCap\ Education}
+\Section{\faGraduationCap}{Education}
   \SubHeadingListStart
     \Subheading
       {UC San Diego}{San Diego, CA}
-      {PhD. in Physics;  GPA: None}{Aug. 2019 -- Present}
+      {PhD. in Physics;  GPA: 3.79}{Sep. 2019 -- Present}
       \ItemListStart
-        \Item{}{Research Interests}
-          {Search for new physics by studying data from proton-proton collisions at the CMS detector at the LHC. Optimization of CMS data storage and retrieval infrastructure in anticipation of the HL-LHC upgrade.}
+        \Item{}{Dissertation}
+            {N/A}
         \Item{}{Relevant Coursework}
-          {Methods in Experimental Physics, Quantum Field Theory, Statistical Mechanics}
-        \Item{}{Fellowships/Awards}
-          {Sloan Scholar Fellowship, Physics Excellence Award}
+          {Mathematical Methods in Physics, Classical Mechanics, Computational Physics}
+        \Item{}{Awards}
+          {Physics Excellence Award}
       \ItemListEnd
       
     \Subheading
       {UC Santa Barbara}{Santa Barbara, CA}
       {B.S. in Physics;  GPA: 3.73}{Sep. 2015 -- June. 2019}
       \ItemListStart
-        \Item{}{Relevant Coursework}
-          {Particle Physics, Analog Electronics, Quantum Mechanics, Electromagnetism, Advanced Classical Mechanics, Linear Algebra, Complex Analysis}
-        \Item{}{Awards}
+        \Item{https://www.physics.ucsb.edu/sites/default/files/sitefiles/education/thesis/Guiang.pdf}{Thesis}
+          {MTD Simulation and Search for Rare Higgs Decays}
+        \Item{https://www.physics.ucsb.edu/education/undergrad/department-honors}{Awards}
           {Highest Academic Honors, Research Excellence Award, Distinction in the Major}
       \ItemListEnd
   \SubHeadingListEnd
 %
 
+%-----------FELLOWSHIPS-----------------
+\Section{\faUniversity}{Fellowships}
+  \SubHeadingListStart
+    \SubItem{http://sloanphds.org/mphd.html}{Sloan MPDH Scholar}
+      {Named an Alfred P. Sloan Foundation’s Minority Ph.D. (MPHD) Scholar in 2019-20.}
+  \SubHeadingListEnd
+%
+
 %-----------EXPERIENCE-----------------
-\section{\faSuitcase\ Experience}
+\Section{\faSuitcase}{Experience}
   \SubHeadingListStart
   
     \Subheading
@@ -112,12 +133,12 @@
       {Student Developer}{May 2019 -- Aug. 2019}
       \ItemListStart
         \Item{https://summerofcode.withgoogle.com/projects/5810325671116800}{CMS Data Access}
-          {Developed a set of tools for cleansing and extracting access pattern data. Put in place a modeling framework for predicting the access patterns within an alternate data access infrastructure. Funded by Google Summer of Code 2019 program.}
+          {Developed open source software for CERN-HSF with funding from Google Summer of Code. Produced a set of tools for cleansing, extracting, and visualizing cache access pattern data. Analyzed and presented insights provided by these tools in order to demonstrate their effectiveness.}
       \ItemListEnd
 
     \Subheading
       {UC Santa Barbara}{Santa Barbara, CA}
-      {Undergraduate Researcher}{Dec. 2016 -- Jun. 2019}
+      {Undergraduate Student Researcher}{Dec. 2016 -- Jun. 2019}
       \ItemListStart
         \Item{https://github.com/jkguiang/rare-higgs}{Rare Higgs Decay Analysis}
           {Measurement of $H \rightarrow \rho/\phi+\gamma$ decays using events from a sample of proton-proton collisions collected with the CMS detector, where anomalous decay rates would indicate existence of new physics. Designed and implemented this novel analysis from the ground up using a numpy/pandas analysis framework.}
@@ -133,7 +154,7 @@
 %
 
 %-----------PROJECTS-----------------
-\section{\faCode\ Projects}
+\Section{\faCode}{Projects}
   \SubHeadingListStart
     \SubItem{https://www.integratable.info}{Integratable}
       {A public tool that provides useful integrals on an interactive, modern platform. Uses a React-based frontend, evaluates known definite integrals using Javascript mathematics functions.}
@@ -142,22 +163,40 @@
   \SubHeadingListEnd
 %
 
-%-----------PUBLICATIONS-----------------
-\section{\faPencilSquareO\ Publications}
-  \SubHeadingListStart
-    \SubItem{https://www.physics.ucsb.edu/education/undergrad/department-honors}{Bachelors Honors Thesis}
-      {\href{https://jkguiang.github.io/thesis-undergrad/}{https://jkguiang.github.io/thesis-undergrad/}}
-  \SubHeadingListEnd
-%
-
-%--------PROGRAMMING SKILLS------------
-\section{\faSliders\ Skills}
+%--------SKILLS------------
+\Section{\faSliders}{Skills}
  \SubHeadingListStart
-    \SubItem{}{Languages}{Python, Javascript, C++, Matlab}
-    \SubItem{}{Technologies}{ROOT, Pandas, XGBoost, React, JQuery, Flask, Docker, OpenSCAD}
+    \SubItem{}{Languages}{Python, Javascript, C/C++, Matlab}
+    \SubItem{}{Technologies}{ROOT, Pandas, XGBoost, React, JQuery, Flask, Docker, Spark SQL, OpenSCAD}
 
  \SubHeadingListEnd
 %
 
+\newpage
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{https://www.jguiang.com}{\Large Jonathan Guiang}} & Email: \href{mailto:jguiang@ucsd.edu}{jguiang@ucsd.edu}\\
+  \textit{\small{Physicist, Programmer, Data Analyst}} & Phone : +1-858-880-5819 \\
+\end{tabular*}
+\begin{center}
+    \small{\href{https://www.jguiang.com}{\faGlobe\ jguiang.com} $|$ \href{https://www.github.com/jkguiang}{\faGithub\ github.com/jkguiang} $|$ \href{https://www.linkedin.com/in/jonathanguiang}{\faLinkedinSquare\ /in/jonathanguiang/}}
+\end{center}
+%
+%-----------COMMUNITY-----------------
+\Section{\faGroup}{Community}
+  \SubHeadingListStart
+    \SubItem{https://www.physics.ucsb.edu/education/undergrad/department-honors}{Bachelors Honors Thesis}
+      {test}
+  \SubHeadingListEnd
+%
+%-----------PUBLICATIONS-----------------
+\nobibliography{pubs}
+\bibliographystyle{JHEP3}
+\Section{\faPencilSquareO}{Publications}
+  \SubHeadingListStart
+    \SubItem{https://www.physics.ucsb.edu/education/undergrad/department-honors}{Bachelors Honors Thesis}
+      {\bibentry{tuda}}
+  \SubHeadingListEnd
+%
 %-------------------------------------------
 \end{document}
