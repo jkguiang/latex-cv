@@ -11,9 +11,9 @@
 \makeatletter\let\saved@bibitem\@bibitem\makeatother
 \usepackage[pdftex]{hyperref}
 \makeatletter\let\@bibitem\saved@bibitem\makeatother
+\usepackage{multibib}
 \usepackage{fancyhdr}
 \usepackage{fontawesome}
-\usepackage{bibentry}
 
 \PassOptionsToPackage{fontawesome}{hyperref}
 \pagestyle{fancy}
@@ -23,8 +23,8 @@
 \renewcommand{\footrulewidth}{0pt}
 
 % Adjust margins
-\addtolength{\oddsidemargin}{-0.375in}
-\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1in}
 \addtolength{\topmargin}{-.5in}
 \addtolength{\textheight}{1.0in}
@@ -89,15 +89,24 @@
 \end{center}
 %
 
+%--------SKILLS------------
+\Section{\faSliders}{Skills}
+ \SubHeadingListStart
+    \SubItem{}{Languages}{Python, Javascript, C/C++, Matlab}
+    \SubItem{}{Technologies}{ROOT, Pandas, Tensorflow, XGBoost, React, JQuery, Flask, Docker, Spark SQL, OpenSCAD, HTML, CSS, PHP}
+
+ \SubHeadingListEnd
+%
+
 %-----------EDUCATION-----------------
 \Section{\faGraduationCap}{Education}
   \SubHeadingListStart
     \Subheading
       {UC San Diego}{San Diego, CA}
-      {PhD. in Physics;  GPA: 3.79}{Sep. 2019 -- Present}
+      {PhD. in Physics;  GPA: 3.76}{Sep. 2019 -- Present}
       \ItemListStart
         \Item{}{Dissertation}
-            {N/A}
+            {TBA}
         \Item{}{Relevant Coursework}
           {Mathematical Methods in Physics, Classical Mechanics, Computational Physics}
         \Item{}{Awards}
@@ -108,7 +117,7 @@
       {UC Santa Barbara}{Santa Barbara, CA}
       {B.S. in Physics;  GPA: 3.73}{Sep. 2015 -- June. 2019}
       \ItemListStart
-        \Item{https://www.physics.ucsb.edu/sites/default/files/sitefiles/education/thesis/Guiang.pdf}{Thesis}
+        \Item{https://www.physics.ucsb.edu/sites/default/files/sitefiles/education/thesis/Guiang.pdf}{Senior Thesis}
           {MTD Simulation and Search for Rare Higgs Decays}
         \Item{https://www.physics.ucsb.edu/education/undergrad/department-honors}{Awards}
           {Highest Academic Honors, Research Excellence Award, Distinction in the Major}
@@ -119,14 +128,30 @@
 %-----------FELLOWSHIPS-----------------
 \Section{\faUniversity}{Fellowships}
   \SubHeadingListStart
-    \SubItem{http://sloanphds.org/mphd.html}{Sloan MPDH Scholar}
-      {Named an Alfred P. Sloan Foundation’s Minority Ph.D. (MPHD) Scholar in 2019-20.}
+    \SubItem{http://sloanphds.org/mphd.html}{Sloan MPHD Scholar}
+      {Named an Alfred P. Sloan Foundation’s Minority Ph.D. (MPHD) Scholar in 2019-20. Served as an official mentor to incoming Scholars.}
   \SubHeadingListEnd
 %
 
 %-----------EXPERIENCE-----------------
 \Section{\faSuitcase}{Experience}
   \SubHeadingListStart
+ 
+     \Subheading
+      {UC San Diego}{San Diego, CA}
+      {Graduate Student Researcher}{Apr. 2019 -- Present}
+      \SubItem{}{Experimental Particle Physics}{Performed data analysis on proton-proton collision data collected with the CMS detector as a part of a multinational collaboration.}
+      \ItemListStart
+        \Item{https://summerofcode.withgoogle.com/projects/5810325671116800}{VBS WWH Analysis}
+          {Measurement of the yet unprobed trilinear Higgs boson self coupling through the Vector Boson Scattering (VBS) production mechanism. Developed background estimation techniques and contributed to the software framework for this analysis and related analyses.}
+      \ItemListEnd
+      \SubItem{}{Radiology}{Worked with an interdisciplinary group of researchers using state-of-the-art technology to conceptualize and refine machine learning algorithms for analyzing and clinically utilizing CT scans.}
+      \ItemListStart
+        \Item{https://summerofcode.withgoogle.com/projects/5810325671116800}{Covid-19 Pneumonia}
+          {Trained a DenseUNet to segment pneumonia in CT scans. Analyzed resultant segmentation masks for diagnostic and prognostic interests.}
+        \Item{https://summerofcode.withgoogle.com/projects/5810325671116800}{Lung Nodules}
+          {Trained a 3D Convolutional Neural Network to classify annotated lung nodules on CT scans as malignant or benign.}
+      \ItemListEnd
   
     \Subheading
       {CERN-HEP Software Foundation}{San Diego, CA}
@@ -141,11 +166,11 @@
       {Undergraduate Student Researcher}{Dec. 2016 -- Jun. 2019}
       \ItemListStart
         \Item{https://github.com/jkguiang/rare-higgs}{Rare Higgs Decay Analysis}
-          {Measurement of $H \rightarrow \rho/\phi+\gamma$ decays using events from a sample of proton-proton collisions collected with the CMS detector, where anomalous decay rates would indicate existence of new physics. Designed and implemented this novel analysis from the ground up using a numpy/pandas analysis framework.}
-        \Item{https://github.com/jkguiang/Chronosim}{MIP Timing Detector}
-          {Developed software for optimizing the design for the MIP Timing Detector to be constructed for the HL-LHC upgrade. Used simulated particle kinematics in addition to a tunable OpenSCAD 3D model of the sensor layout to measure the efficiency and other response characteristics of the detector in direct collaboration with the team responsible for its construction.}
+          {Measurement of $H \rightarrow \rho/\phi+\gamma$ decays using events from a sample of proton-proton collisions collected with the CMS detector, where anomalous decay rates would indicate existence of new physics. Designed and implemented this novel analysis from the ground up using a numpy/pandas framework.}
+        \Item{https://github.com/jkguiang/Chronosim}{MIP Timing Detector (MTD)}
+          {Developed software for optimizing the design for the MTD to be constructed for the HL-LHC. Used simulated particle kinematics in addition to a tunable OpenSCAD 3D model of the sensor layout to simulate the efficiency of the detector in direct collaboration with the team responsible for its construction.}
         \Item{https://github.com/jkguiang/AutoDQM}{AutoDQM}
-          {Conceptualized, designed, and implemented a statistical tool for data quality management with an online graphical interface for ease of use. Continued collaboration with another student in Switzerland to further improve the platform and market it to other research groups.}
+          {Conceptualized, designed, and implemented a statistical tool for data quality management with an online graphical interface for ease of use. Collaborated with a computer science student in Switzerland to further improve the platform and market it to other research groups.}
         \Item{https://github.com/bjmarsh/pmt-calibration}{MilliQan}
           {Characterized the single-photoelectron (SPE) response of photomultiplier tubes used in the “MilliQan” experiment demonstrator under the direction of a graduate student, working closely with another undergraduate. Developed software for simulating SPE responses.}
       \ItemListEnd
@@ -158,45 +183,54 @@
   \SubHeadingListStart
     \SubItem{https://www.integratable.info}{Integratable}
       {A public tool that provides useful integrals on an interactive, modern platform. Uses a React-based frontend, evaluates known definite integrals using Javascript mathematics functions.}
+    \SubItem{https://www.jguiang.com}{Personal Website}
+      {Simple website build using React and deployed on github pages. Used assets from Font Awesome and Bootstrap and added animations using react-pose.}
     \SubItem{https://devpost.com/software/chompchap}{ChompChapp}
       {Made for the SB Hacks V Hackathon and selected as one of the top six projects of the event. Made intelligent restaurant suggestions based on subconscious user preference. Javascript/JQuery webpage served by Flask/Celery on a Redis server. Powered by a Python backend with Tensorflow and Keras machine learning models.}
   \SubHeadingListEnd
 %
 
-%--------SKILLS------------
-\Section{\faSliders}{Skills}
- \SubHeadingListStart
-    \SubItem{}{Languages}{Python, Javascript, C/C++, Matlab}
-    \SubItem{}{Technologies}{ROOT, Pandas, XGBoost, React, JQuery, Flask, Docker, Spark SQL, OpenSCAD}
+% \newpage
+% %----------HEADING-----------------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{https://www.jguiang.com}{\Large Jonathan Guiang}} & Email: \href{mailto:jguiang@ucsd.edu}{jguiang@ucsd.edu}\\
+%   \textit{\small{Physicist, Programmer, Data Analyst}} & Phone : +1-858-880-5819 \\
+% \end{tabular*}
+% \begin{center}
+%     \small{\href{https://www.jguiang.com}{\faGlobe\ jguiang.com} $|$ \href{https://www.github.com/jkguiang}{\faGithub\ github.com/jkguiang} $|$ \href{https://www.linkedin.com/in/jonathanguiang}{\faLinkedinSquare\ /in/jonathanguiang/}}
+% \end{center}
+% %
 
- \SubHeadingListEnd
-%
-
-\newpage
-%----------HEADING-----------------
-\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \textbf{\href{https://www.jguiang.com}{\Large Jonathan Guiang}} & Email: \href{mailto:jguiang@ucsd.edu}{jguiang@ucsd.edu}\\
-  \textit{\small{Physicist, Programmer, Data Analyst}} & Phone : +1-858-880-5819 \\
-\end{tabular*}
-\begin{center}
-    \small{\href{https://www.jguiang.com}{\faGlobe\ jguiang.com} $|$ \href{https://www.github.com/jkguiang}{\faGithub\ github.com/jkguiang} $|$ \href{https://www.linkedin.com/in/jonathanguiang}{\faLinkedinSquare\ /in/jonathanguiang/}}
-\end{center}
-%
 %-----------COMMUNITY-----------------
 \Section{\faGroup}{Community}
   \SubHeadingListStart
-    \SubItem{https://www.physics.ucsb.edu/education/undergrad/department-honors}{Bachelors Honors Thesis}
-      {test}
+      \Subheading
+      {Expand}{San Diego, CA}
+      {Co-founder}{January 2020 -- Present}
+      \ItemListStart
+        \Item{https://summerofcode.withgoogle.com/projects/5810325671116800}{Description}
+          {EXperiential Projects for Accelerated Networking and Development (EXPAND).  Program pairs an interested undergraduate with a graduate student mentor working in research. The mentor/mentee pair work towards the completion of a project sourced from research and honed to target industry-specific skills. Produced in collaboration with the UCSD Physical Sciences Student Success Center.}
+        \Item{https://summerofcode.withgoogle.com/projects/5810325671116800}{Positions}
+            {Program Organizer (Duration), Graduate Student Mentor (Spring, 2021)}
+      \ItemListEnd
   \SubHeadingListEnd
 %
 %-----------PUBLICATIONS-----------------
-\nobibliography{pubs}
+\nobibliography{publications}
 \bibliographystyle{JHEP3}
 \Section{\faPencilSquareO}{Publications}
-  \SubHeadingListStart
-    \SubItem{https://www.physics.ucsb.edu/education/undergrad/department-honors}{Bachelors Honors Thesis}
-      {\bibentry{tuda}}
-  \SubHeadingListEnd
-%
+  \begin{itemize}
+      \item \bibentry{ball2020search}
+  \end{itemize}
+
+\Section{\faArchive}{Proceedings}
+  \begin{itemize}
+      \item \bibentry{fajardo2020moving}
+  \end{itemize}
+  
+% \Section{\faMicrophone}{Presentations}
+%   \begin{itemize}
+%       \item test
+%   \end{itemize}
 %-------------------------------------------
 \end{document}
